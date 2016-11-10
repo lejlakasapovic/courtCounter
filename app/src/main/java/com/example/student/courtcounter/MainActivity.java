@@ -46,9 +46,9 @@ public class MainActivity extends AppCompatActivity {
 
         gameOver = new AlertDialog.Builder(MainActivity.this).create();
 
-        soundFX1 = MediaPlayer.create(this, R.raw.up);
-        soundFX2 = MediaPlayer.create(this, R.raw.down);
-        soundFX3 = MediaPlayer.create(this, R.raw.reset);
+        soundFX1 = MediaPlayer.create(this, R.raw.a);
+        soundFX2 = MediaPlayer.create(this, R.raw.b);
+        soundFX3 = MediaPlayer.create(this, R.raw.c);
     }
 
     public void click1(View view) {
@@ -106,3 +106,20 @@ public class MainActivity extends AppCompatActivity {
         if(s == g) {
             gameOver.setMessage("Draw! Nobody Wins!");
         }
+
+
+        //Sets the title for the alert box.
+        gameOver.setTitle("Game Over!");
+
+        //The text box has a button that says, "OK" and will close the alert when pressed.
+        gameOver.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+        //Shows the alert
+        gameOver.show();
+    }
+}
